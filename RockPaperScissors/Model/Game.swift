@@ -9,6 +9,9 @@ import Foundation
 
 struct Game {
     private var playersChoice: String? {
+        willSet {
+            aIChoice = generateNewTurn()
+        }
         didSet {
             print("playerChoice set to \(playersChoice)")
         }
@@ -22,7 +25,12 @@ struct Game {
     
     mutating func newTurnWasMade(with turn: String, completion: (String) -> ()) {
         playersChoice = turn
-        completion(generateNewTurn())
+        
+        if let safeAIChoice = aIChoice {
+            completion(safeAIChoice)
+        } else {
+            fatalError("aiChoice had been nil when completion was executed")
+        }
     }
     
     private mutating func generateNewTurn() -> String {
@@ -35,8 +43,6 @@ struct Game {
         case 2: choice = K.paper
         default: choice = K.none
         }
-        
-        aIChoice = choice
         return choice
     }
     
