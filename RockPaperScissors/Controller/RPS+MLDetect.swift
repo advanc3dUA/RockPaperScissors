@@ -24,13 +24,13 @@ extension RPSViewController {
             
             if let bestResult = results.first?.identifier {
                 var modifiedResult = bestResult
-                // edit here if it is not pure string
-                
-                self.game.newTurnWasMade(with: modifiedResult) { aiResult in
-                    self.aiResultLabel.text = aiResult
+   
+                self.game.makeMove(with: modifiedResult) { aiChoice, playerResult in
+                    self.playerResultLabel.text = playerResult
+                    self.aiResultLabel.text = aiChoice
                 }
-                
-                self.playerResultLabel.text = modifiedResult
+
+                self.playerResultLabel.text! += "\nYou selected: \(modifiedResult)"
             }
         }
             

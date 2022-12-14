@@ -9,25 +9,17 @@ import Foundation
 
 struct Game {
     private var playersChoice: String? {
-        willSet {
+        didSet {
             aIChoice = generateNewTurn()
         }
-        didSet {
-            print("playerChoice set to \(playersChoice)")
-        }
     }
-    private var aIChoice: String? {
-        didSet {
-            print("aiChoice set to \(aIChoice)")
-            // compare
-        }
-    }
+    private var aIChoice: String?
     
-    mutating func newTurnWasMade(with turn: String, completion: (String) -> ()) {
-        playersChoice = turn
+    mutating func makeMove(with choice: String, completion: (String, String) -> ()) {
+        playersChoice = choice
         
         if let safeAIChoice = aIChoice {
-            completion(safeAIChoice)
+            completion(safeAIChoice, checkPlayerResult())
         } else {
             fatalError("aiChoice had been nil when completion was executed")
         }
@@ -46,9 +38,9 @@ struct Game {
         return choice
     }
     
-    private func playerWin(ai aiChoice: String, player playerChoice: String) -> String {
+    private func checkPlayerResult() -> String {
         var result = ""
-        switch (aiChoice, playerChoice) {
+        switch (aIChoice, playersChoice) {
             
         case (K.rock, K.rock): result = K.Result.draw
         case (K.paper, K.paper): result = K.Result.draw
@@ -63,7 +55,8 @@ struct Game {
         case (K.scissors, K.rock): result = K.Result.win
         case (K.scissors, K.paper): result = K.Result.lose
             
-        default: fatalError("Couldn't detect winner of last round")
+        //default: fatalError("Couldn't detect winner of last round")
+        default: result = "someone has won"
         }
         
         return result
