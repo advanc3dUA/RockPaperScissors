@@ -26,7 +26,11 @@ extension RPSViewController {
                 var modifiedResult = bestResult
                 // edit here if it is not pure string
                 
-                self.game.informGame(with: modifiedResult)
+                self.game.newTurnWasMade(with: modifiedResult) { aiResult in
+                    self.aiResultLabel.text = aiResult
+                }
+                
+                self.playerResultLabel.text = modifiedResult
             }
         }
             

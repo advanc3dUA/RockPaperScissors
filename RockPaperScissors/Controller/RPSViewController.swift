@@ -11,6 +11,8 @@ class RPSViewController: UIViewController {
     
     var game = Game()
     var pickerController = UIImagePickerController()
+    @IBOutlet weak var playerResultLabel: UILabel!
+    @IBOutlet weak var aiResultLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
     
     override func viewDidLoad() {
