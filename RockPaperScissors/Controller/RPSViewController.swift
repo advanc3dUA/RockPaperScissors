@@ -13,7 +13,10 @@ class RPSViewController: UIViewController {
     var pickerController = UIImagePickerController()
     @IBOutlet weak var playerResultLabel: UILabel!
     @IBOutlet weak var aiResultLabel: UILabel!
-    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var playerImageView: UIImageView!
+    @IBOutlet weak var aiImageView: UIImageView!
+    @IBOutlet weak var matchResultLabel: UILabel!
+    @IBOutlet weak var playButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +26,7 @@ class RPSViewController: UIViewController {
     }
     
     
-    @IBAction func makeTurnPressed(_ sender: UIButton) {
+    @IBAction func playPressed(_ sender: UIButton) {
         present(pickerController, animated: true)
     }
 }

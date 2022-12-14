@@ -9,8 +9,8 @@ import Foundation
 
 struct K {
     static let rock = "rock"
-    static let paper = "paper"
     static let scissors = "scissors"
+    static let paper = "paper"
     static let none = "none"
     
     struct Result {

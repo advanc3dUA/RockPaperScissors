@@ -26,11 +26,15 @@ extension RPSViewController {
                 var modifiedResult = bestResult
    
                 self.game.makeMove(with: modifiedResult) { aiChoice, playerResult in
-                    self.playerResultLabel.text = playerResult
                     self.aiResultLabel.text = aiChoice
+                    self.aiImageView.image = UIImage(named: aiChoice)
+                    
+                    self.matchResultLabel.isHidden = false
+                    self.matchResultLabel.text = playerResult
                 }
 
-                self.playerResultLabel.text! += "\nYou selected: \(modifiedResult)"
+                self.playerResultLabel.text = "You selected: \(modifiedResult)"
+                self.playButton.setTitle("Play again!", for: .normal)
             }
         }
             

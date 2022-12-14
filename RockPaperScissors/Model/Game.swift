@@ -31,7 +31,7 @@ struct Game {
         let random = Int.random(in: 0...2)
         switch random {
         case 0: choice = K.rock
-        case 1: choice = K.paper
+        case 1: choice = K.scissors
         case 2: choice = K.paper
         default: choice = K.none
         }
