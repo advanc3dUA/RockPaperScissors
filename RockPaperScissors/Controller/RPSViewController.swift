@@ -17,6 +17,7 @@ class RPSViewController: UIViewController {
     @IBOutlet weak var aiImageView: UIImageView!
     @IBOutlet weak var matchResultLabel: UILabel!
     @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var scoreLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +26,17 @@ class RPSViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateScore()
+    }
+    
     
     @IBAction func playPressed(_ sender: UIButton) {
         present(pickerController, animated: true)
+    }
+    
+    func updateScore() {
+        scoreLabel.text = game.getCurrentScore()
     }
 }

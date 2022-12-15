@@ -14,15 +14,31 @@ struct Game {
         }
     }
     private var aIChoice: String?
+    private var score: (ai: Int, player: Int) = (0, 0)
     
     mutating func makeMove(with choice: String, completion: (String, String) -> ()) {
         playersChoice = choice
         
         if let safeAIChoice = aIChoice {
-            completion(safeAIChoice, checkPlayerResult())
+            let result = checkPlayerResult()
+            updateScore(with: result)
+            completion(safeAIChoice, result)
+            
         } else {
             fatalError("aiChoice had been nil when completion was executed")
         }
+    }
+    
+    private mutating func updateScore(with result: String) {
+        switch result {
+        case K.Result.win: score.player += 1
+        case K.Result.lose: score.ai += 1
+        default: return
+        }
+    }
+    
+    func getCurrentScore() -> String {
+        return "Score: \(String(score.ai)):\(String(score.player))"
     }
     
     private mutating func generateNewTurn() -> String {
@@ -31,8 +47,8 @@ struct Game {
         let random = Int.random(in: 0...2)
         switch random {
         case 0: choice = K.rock
-        case 1: choice = K.scissors
-        case 2: choice = K.paper
+        case 1: choice = K.paper
+        case 2: choice = K.scissors
         default: choice = K.none
         }
         return choice
