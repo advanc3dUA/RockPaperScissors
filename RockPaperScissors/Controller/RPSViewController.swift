@@ -29,11 +29,6 @@ class RPSViewController: UIViewController {
         setupPickerController()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        updateScore()
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setNewRowForAIPickerView()
@@ -41,10 +36,6 @@ class RPSViewController: UIViewController {
     
     @IBAction func playPressed(_ sender: UIButton) {
         present(pickerController, animated: true)
-    }
-    
-    func updateScore() {
-        scoreLabel.text = game.getCurrentScore()
     }
 }
 

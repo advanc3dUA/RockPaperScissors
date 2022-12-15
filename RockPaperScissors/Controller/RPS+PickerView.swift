@@ -31,7 +31,18 @@ extension RPSViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
         return result
     }
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        updateScore()
+    }
+    
 //MARK: - Getting new position of PickerView methods
+    private func updateScore() {
+        scoreLabel.isHidden = false
+        scoreLabel.text = game.getCurrentScore()
+        matchResultLabel.isHidden = false
+        matchResultLabel.text = game.getPlayerResult()
+    }
+    
     func getNewPositionForAIPicker(aiChoice: String) -> Int {
         var randomNum = K.imageList.count / 2
         

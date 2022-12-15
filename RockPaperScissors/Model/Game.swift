@@ -14,22 +14,26 @@ struct Game {
         }
     }
     private var aIChoice: String?
+    private var playerResult: String?
     private var score: (ai: Int, player: Int) = (0, 0)
     
-    mutating func makeMove(with choice: String, completion: (String, String) -> ()) {
+//    mutating func makeMove(with choice: String, completion: (String, String) -> ()) {
+        mutating func makeMove(with choice: String, completion: (String) -> ()) {
         playersChoice = choice
         
         if let choice = aIChoice {
             let result = checkPlayerResult()
-            updateScore(with: result)
-            completion(choice, result)
+            updateScoreAndPlayer(with: result)
+            completion(choice)
             
         } else {
             fatalError("aiChoice had been nil when completion was executed")
         }
     }
     
-    private mutating func updateScore(with result: String) {
+    private mutating func updateScoreAndPlayer(with result: String) {
+        playerResult = result
+        
         switch result {
         case K.Result.win: score.player += 1
         case K.Result.lose: score.ai += 1
@@ -39,6 +43,10 @@ struct Game {
     
     func getCurrentScore() -> String {
         return "Score: \(String(score.ai)):\(String(score.player))"
+    }
+    
+    func getPlayerResult() -> String {
+        return "You \(playerResult ?? "are good")"
     }
     
     private mutating func makeNewAIChoice() -> String {
@@ -72,7 +80,7 @@ struct Game {
         case (K.scissors, K.paper): result = K.Result.lose
             
         //default: fatalError("Couldn't detect winner of last round")
-        default: result = "someone has won"
+        default: result = "can't detect"
         }
         
         return result
