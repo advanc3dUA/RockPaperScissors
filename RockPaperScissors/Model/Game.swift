@@ -10,7 +10,7 @@ import Foundation
 struct Game {
     private var playersChoice: String? {
         didSet {
-            aIChoice = generateNewTurn()
+            aIChoice = makeNewAIChoice()
         }
     }
     private var aIChoice: String?
@@ -19,10 +19,10 @@ struct Game {
     mutating func makeMove(with choice: String, completion: (String, String) -> ()) {
         playersChoice = choice
         
-        if let safeAIChoice = aIChoice {
+        if let choice = aIChoice {
             let result = checkPlayerResult()
             updateScore(with: result)
-            completion(safeAIChoice, result)
+            completion(choice, result)
             
         } else {
             fatalError("aiChoice had been nil when completion was executed")
@@ -41,7 +41,7 @@ struct Game {
         return "Score: \(String(score.ai)):\(String(score.player))"
     }
     
-    private mutating func generateNewTurn() -> String {
+    private mutating func makeNewAIChoice() -> String {
         var choice = ""
 
         let random = Int.random(in: 0...2)

@@ -27,9 +27,7 @@ extension RPSViewController {
    
                 self.game.makeMove(with: modifiedResult) { aiChoice, playerResult in
                     self.aiResultLabel.text = aiChoice
-//                    self.aiImageView.image = UIImage(named: aiChoice)
-//                    self.aiPickerView.selectRow(self.getNewAIPickerPosition(aiChoice: aiChoice), inComponent: 0, animated: true)
-                    self.aiPickerPosition = self.getNewAIPickerPosition(aiChoice: aiChoice)
+                    self.aiPickerPosition = self.getNewPositionForAIPicker(aiChoice: aiChoice)
                     
                     self.matchResultLabel.isHidden = false
                     self.matchResultLabel.text = playerResult
