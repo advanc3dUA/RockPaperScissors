@@ -43,7 +43,7 @@ struct Game {
     
     private mutating func generateNewTurn() -> String {
         var choice = ""
-        
+
         let random = Int.random(in: 0...2)
         switch random {
         case 0: choice = K.rock
