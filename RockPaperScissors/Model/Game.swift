@@ -42,7 +42,7 @@ struct Game {
     }
     
     func getCurrentScore() -> String {
-        return "\(String(score.ai)):\(String(score.player))"
+        return "Score: \(String(score.ai)):\(String(score.player))"
     }
     
     func getPlayerResult() -> String {

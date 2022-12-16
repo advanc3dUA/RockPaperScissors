@@ -56,10 +56,11 @@ extension RPSViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
             timer.invalidate()
             return
         }
+        aiPickerView.isHidden = false
         var position = aiPickerView.selectedRow(inComponent: 0)
         
         matchResultLabel.isHidden = false
-        matchResultLabel.text = "AI making decision..."
+        matchResultLabel.text = "AI is making decision..."
         
         if newPosition < position {
             position -= 1

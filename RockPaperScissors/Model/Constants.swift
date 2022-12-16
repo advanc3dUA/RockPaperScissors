@@ -23,12 +23,13 @@ struct K {
     }()
     
     struct Result {
-        static let win = "You won!"
-        static let lose = "You lost!"
-        static let draw = "Draw this time"
+        static let win = "✅ You won!"
+        static let lose = "❌ You lost!"
+        static let draw = "🤝 Draw this time"
     }
     
     struct Timer {
         static let period = 0.2
     }
 }
+

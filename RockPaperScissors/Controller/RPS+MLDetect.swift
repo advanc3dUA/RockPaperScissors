@@ -24,15 +24,20 @@ extension RPSViewController {
             
             if let bestResult = results.first?.identifier {
                 //var modifiedResult = bestResult
-                var modifiedResult = "rock"
-   
-                self.game.makeMove(with: modifiedResult) { aiChoice in
-                    print("aiResult= \(aiChoice)")
-                    self.aiPickerPosition = self.getNewPositionForAIPicker(aiChoice: aiChoice)
-                }
-
+                let modifiedResult = "rock"
                 print("playerResult: \(modifiedResult)")
-                self.playButton.setTitle("Play again!", for: .normal)
+                
+                if self.isValidResult(modifiedResult) {
+                    self.game.makeMove(with: modifiedResult) { aiChoice in
+                        print("aiResult= \(aiChoice)")
+                        self.aiPickerPosition = self.getNewPositionForAIPicker(aiChoice: aiChoice)
+                    }
+                    self.playButton.setTitle("Play again!", for: .normal)
+                    
+                } else {
+                    self.matchResultLabel.isHidden = false
+                    self.matchResultLabel.text = "Can't recognize, try again"
+                }
             }
         }
             
@@ -42,5 +47,10 @@ extension RPSViewController {
         } catch {
             fatalError(error.localizedDescription)
         }
+    }
+    
+    private func isValidResult(_ result: String) -> Bool {
+        if result == "none" { return false }
+        return true
     }
 }
