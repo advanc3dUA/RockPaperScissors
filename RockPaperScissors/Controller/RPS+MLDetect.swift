@@ -40,7 +40,7 @@ extension RPSViewController {
                 }
             }
         }
-            
+        
         let handler = VNImageRequestHandler(ciImage: image)
         do {
             try handler.perform([request])

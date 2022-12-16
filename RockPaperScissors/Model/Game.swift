@@ -17,9 +17,8 @@ struct Game {
     private var playerResult: String?
     private var score: (ai: Int, player: Int) = (0, 0)
     
-//    mutating func makeMove(with choice: String, completion: (String, String) -> ()) {
-        mutating func makeMove(with playerChoice: String, completion: (String) -> ()) {
-            self.playersChoice = playerChoice
+    mutating func makeMove(with playerChoice: String, completion: (String) -> ()) {
+        self.playersChoice = playerChoice
         
         if let choice = aIChoice {
             let result = checkPlayerResult()
@@ -51,7 +50,7 @@ struct Game {
     
     private mutating func makeNewAIChoice() -> String {
         var choice = ""
-
+        
         let random = Int.random(in: 0...2)
         switch random {
         case 0: choice = K.rock
@@ -69,7 +68,7 @@ struct Game {
         case (K.rock, K.rock): result = K.Result.draw
         case (K.paper, K.paper): result = K.Result.draw
         case (K.scissors, K.scissors): result = K.Result.draw
-        
+            
         case (K.rock, K.paper): result = K.Result.win
         case (K.rock, K.scissors): result = K.Result.lose
             
@@ -79,8 +78,7 @@ struct Game {
         case (K.scissors, K.rock): result = K.Result.win
         case (K.scissors, K.paper): result = K.Result.lose
             
-        //default: fatalError("Couldn't detect winner of last round")
-        default: result = "can't detect"
+        default: fatalError("Couldn't detect winner of last round")
         }
         
         return result

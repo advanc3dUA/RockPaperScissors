@@ -8,7 +8,7 @@
 import UIKit
 
 extension RPSViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
-//MARK: Datasource & Delegate
+    //MARK: Datasource & Delegate
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -31,7 +31,7 @@ extension RPSViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
         return result
     }
     
-//MARK: - Getting new position of PickerView methods
+    //MARK: - Getting new position of PickerView methods
     private func updateScore() {
         scoreLabel.isHidden = false
         scoreLabel.text = game.getCurrentScore()
