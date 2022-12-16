@@ -31,15 +31,10 @@ extension RPSViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
         return result
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        updateScore()
-    }
-    
 //MARK: - Getting new position of PickerView methods
     private func updateScore() {
         scoreLabel.isHidden = false
         scoreLabel.text = game.getCurrentScore()
-        matchResultLabel.isHidden = false
         matchResultLabel.text = game.getPlayerResult()
     }
     
@@ -63,6 +58,9 @@ extension RPSViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
         }
         var position = aiPickerView.selectedRow(inComponent: 0)
         
+        matchResultLabel.isHidden = false
+        matchResultLabel.text = "AI making decision..."
+        
         if newPosition < position {
             position -= 1
             aiPickerView.selectRow(position, inComponent: 0, animated: true)
@@ -71,6 +69,7 @@ extension RPSViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
             aiPickerView.selectRow(position, inComponent: 0, animated: true)
         } else if newPosition == position {
             timer.invalidate()
+            updateScore()
         }
     }
 }

@@ -17,13 +17,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z7Z-Cd-UOd">
-                                <rect key="frame" x="84" y="441" width="225" height="225"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z7Z-Cd-UOd">
+                                <rect key="frame" x="84" y="397" width="225" height="225"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="225" id="F47-Ra-gEI"/>
+                                    <constraint firstAttribute="width" constant="225" id="t2z-nw-Gei"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OfF-yt-uMD">
-                                <rect key="frame" x="129" y="715" width="135" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <pickerView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l5b-MI-uz5">
+                                <rect key="frame" x="5" y="108" width="383" height="216"/>
+                            </pickerView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ScoreLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CdZ-ez-2vz">
+                                <rect key="frame" x="5" y="357" width="150" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Oqj-bI-MOf"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="nbK-ex-i6V"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="yKE-WK-uWT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MatchResult" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dKO-ID-Ftv">
+                                <rect key="frame" x="238" y="357" width="150" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="J3P-6y-QZZ"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="KZS-Aw-vtp"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="R1t-gL-CYI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OfF-yt-uMD">
+                                <rect key="frame" x="129" y="696" width="135" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="135" id="RgW-FY-yQC"/>
+                                    <constraint firstAttribute="height" constant="62" id="iou-v0-KAX"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Play">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="17"/>
@@ -32,50 +63,31 @@
                                     <action selector="playPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NMs-bH-3vI"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ai" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dij-1F-u8r">
-                                <rect key="frame" x="159" y="323" width="75" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MatchResult" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dKO-ID-Ftv">
-                                <rect key="frame" x="237" y="368" width="140" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ScoreLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CdZ-ez-2vz">
-                                <rect key="frame" x="16" y="368" width="140" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <pickerView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l5b-MI-uz5">
-                                <rect key="frame" x="16" y="103" width="361" height="212"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="player" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IvR-t2-AMe">
-                                <rect key="frame" x="144" y="665" width="105" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CdZ-ez-2vz" firstAttribute="top" secondItem="l5b-MI-uz5" secondAttribute="bottom" constant="33" id="0uK-oN-RY8"/>
+                            <constraint firstItem="l5b-MI-uz5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="33P-6g-WIa"/>
+                            <constraint firstItem="dKO-ID-Ftv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CdZ-ez-2vz" secondAttribute="trailing" constant="8" symbolic="YES" id="A3E-jp-mpz"/>
+                            <constraint firstItem="CdZ-ez-2vz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="Axn-k0-VFZ"/>
+                            <constraint firstItem="dKO-ID-Ftv" firstAttribute="top" secondItem="l5b-MI-uz5" secondAttribute="bottom" constant="33" id="Jy5-Wl-Wss"/>
+                            <constraint firstItem="l5b-MI-uz5" firstAttribute="trailing" secondItem="dKO-ID-Ftv" secondAttribute="trailing" id="Noc-o1-OEY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OfF-yt-uMD" secondAttribute="bottom" constant="60" id="XLE-Cy-6wo"/>
+                            <constraint firstItem="l5b-MI-uz5" firstAttribute="centerX" secondItem="OfF-yt-uMD" secondAttribute="centerX" id="d4l-ES-zTd"/>
+                            <constraint firstItem="l5b-MI-uz5" firstAttribute="leading" secondItem="CdZ-ez-2vz" secondAttribute="leading" id="iIo-3I-cAq"/>
+                            <constraint firstItem="Z7Z-Cd-UOd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="kue-Ig-2Ef"/>
+                            <constraint firstItem="Z7Z-Cd-UOd" firstAttribute="top" secondItem="CdZ-ez-2vz" secondAttribute="bottom" constant="15" id="lc4-k2-G5O"/>
+                            <constraint firstItem="OfF-yt-uMD" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="mRb-kj-znQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dKO-ID-Ftv" secondAttribute="trailing" constant="5" id="ogm-iZ-tlD"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Rock Paper Scissors" id="tu0-5X-wWT"/>
                     <connections>
                         <outlet property="aiPickerView" destination="l5b-MI-uz5" id="MUv-It-wRe"/>
-                        <outlet property="aiResultLabel" destination="dij-1F-u8r" id="jY3-2s-o7Q"/>
                         <outlet property="matchResultLabel" destination="dKO-ID-Ftv" id="QGK-8s-zAu"/>
                         <outlet property="playButton" destination="OfF-yt-uMD" id="0et-W9-cFs"/>
                         <outlet property="playerImageView" destination="Z7Z-Cd-UOd" id="Yoo-3e-ZTl"/>
-                        <outlet property="playerResultLabel" destination="IvR-t2-AMe" id="ss6-UL-aKG"/>
                         <outlet property="scoreLabel" destination="CdZ-ez-2vz" id="sXr-JO-diz"/>
                     </connections>
                 </viewController>

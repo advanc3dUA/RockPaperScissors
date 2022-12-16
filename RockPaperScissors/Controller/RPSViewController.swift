@@ -9,8 +9,6 @@ import UIKit
 
 class RPSViewController: UIViewController {
     
-    @IBOutlet weak var playerResultLabel: UILabel!
-    @IBOutlet weak var aiResultLabel: UILabel!
     @IBOutlet weak var playerImageView: UIImageView!
     @IBOutlet weak var matchResultLabel: UILabel!
     @IBOutlet weak var playButton: UIButton!

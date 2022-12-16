@@ -18,8 +18,8 @@ struct Game {
     private var score: (ai: Int, player: Int) = (0, 0)
     
 //    mutating func makeMove(with choice: String, completion: (String, String) -> ()) {
-        mutating func makeMove(with choice: String, completion: (String) -> ()) {
-        playersChoice = choice
+        mutating func makeMove(with playerChoice: String, completion: (String) -> ()) {
+            self.playersChoice = playerChoice
         
         if let choice = aIChoice {
             let result = checkPlayerResult()
@@ -42,11 +42,11 @@ struct Game {
     }
     
     func getCurrentScore() -> String {
-        return "Score: \(String(score.ai)):\(String(score.player))"
+        return "\(String(score.ai)):\(String(score.player))"
     }
     
     func getPlayerResult() -> String {
-        return "You \(playerResult ?? "are good")"
+        return "\(playerResult ?? "?")"
     }
     
     private mutating func makeNewAIChoice() -> String {
