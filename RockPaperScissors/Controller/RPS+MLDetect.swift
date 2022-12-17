@@ -29,22 +29,24 @@ extension RPSViewController {
                 case "FistHand": modifiedResult = K.rock
                 case "FiveHand": modifiedResult = K.paper
                 case "VictoryHand": modifiedResult = K.scissors
-                default: modifiedResult = K.none
+                default:
+                    let random = Int.random(in: 0...2)
+                    modifiedResult = K.playerImageList[random]
                 }
                 // let modifiedResult = "rock"
                 print("playerResult: \(modifiedResult)")
                 
-                if self.isValidResult(modifiedResult) {
-                    self.game.makeMove(with: modifiedResult) { aiChoice in
-                        print("aiResult= \(aiChoice)")
-                        self.aiPickerPosition = self.getNewPositionForAIPicker(aiChoice: aiChoice)
-                    }
-                    self.playButton.setTitle("Play again!", for: .normal)
-                    
-                } else {
-                    self.matchResultLabel.isHidden = false
-                    self.matchResultLabel.text = "Can't recognize, try again"
+                self.playerPickerView.isHidden = false
+                switch modifiedResult {
+                case K.rock: self.playerPickerView.selectRow(0, inComponent: 0, animated: true)
+                case K.paper: self.playerPickerView.selectRow(1, inComponent: 0, animated: true)
+                default: self.playerPickerView.selectRow(2, inComponent: 0, animated: true)
                 }
+                self.game.makeMove(with: modifiedResult) { aiChoice in
+                    print("aiResult= \(aiChoice)")
+                    self.aiPickerPosition = self.getNewPositionForAIPicker(aiChoice: aiChoice)
+                }
+                self.playButton.setTitle("Play again!", for: .normal)
             }
         }
         
@@ -54,10 +56,5 @@ extension RPSViewController {
         } catch {
             fatalError(error.localizedDescription)
         }
-    }
-    
-    private func isValidResult(_ result: String) -> Bool {
-        if result == "none" { return false }
-        return true
     }
 }

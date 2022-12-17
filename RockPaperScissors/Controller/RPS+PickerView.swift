@@ -14,7 +14,11 @@ extension RPSViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return K.imageList.count
+        if pickerView.tag == 1 {
+            return K.aiImageList.count
+        } else {
+            return K.playerImageList.count
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
@@ -27,7 +31,11 @@ extension RPSViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let result = UIImageView(frame: CGRect(x: 0, y: 0, width: 225, height: 225))
-        result.image = UIImage(named: K.imageList[row])
+        if pickerView.tag == 1 {
+            result.image = UIImage(named: K.aiImageList[row])
+        } else {
+            result.image = UIImage(named: K.playerImageList[row])
+        }
         return result
     }
     
@@ -39,10 +47,10 @@ extension RPSViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
     }
     
     func getNewPositionForAIPicker(aiChoice: String) -> Int {
-        var randomNum = K.imageList.count / 2
+        var randomNum = K.aiImageList.count / 2
         
-        while aiChoice != K.imageList[randomNum] {
-            randomNum = Int.random(in: 0..<K.imageList.count)
+        while aiChoice != K.aiImageList[randomNum] {
+            randomNum = Int.random(in: 0..<K.aiImageList.count)
         }
         return randomNum
     }

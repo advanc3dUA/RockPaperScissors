@@ -17,9 +17,10 @@ extension RPSViewController: UIImagePickerControllerDelegate, UINavigationContro
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            DispatchQueue.main.async {
-                self.playerImageView.image = selectedImage
-            }
+            
+//            DispatchQueue.main.async {
+//                self.playerImageView.image = selectedImage
+//            }
             
             guard let ciImage = CIImage(image: selectedImage) else {
                 fatalError("Couldn't convert selectedImage to ciImage")

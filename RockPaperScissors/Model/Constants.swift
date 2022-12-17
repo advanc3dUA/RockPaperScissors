@@ -13,7 +13,9 @@ struct K {
     static let paper = "paper"
     static let none = "none"
     
-    static var imageList: [String] = {
+    static var playerImageList: [String] = [K.rock, K.paper, K.scissors]
+    
+    static var aiImageList: [String] = {
         let images = [K.rock, K.paper, K.scissors]
         var array = [String]()
         for index in 0...98 {

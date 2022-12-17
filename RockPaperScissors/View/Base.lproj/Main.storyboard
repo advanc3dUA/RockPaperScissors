@@ -31,7 +31,7 @@
                                     <action selector="playPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NMs-bH-3vI"/>
                                 </connections>
                             </button>
-                            <pickerView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l5b-MI-uz5">
+                            <pickerView hidden="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l5b-MI-uz5">
                                 <rect key="frame" x="5" y="108" width="383" height="216"/>
                             </pickerView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ScoreLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CdZ-ez-2vz">
@@ -54,13 +54,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z7Z-Cd-UOd">
-                                <rect key="frame" x="84" y="397" width="225" height="225"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="225" id="F47-Ra-gEI"/>
-                                    <constraint firstAttribute="width" constant="225" id="t2z-nw-Gei"/>
-                                </constraints>
-                            </imageView>
+                            <pickerView hidden="YES" tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xao-OV-DFB">
+                                <rect key="frame" x="5" y="415" width="383" height="216"/>
+                            </pickerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -69,13 +65,14 @@
                             <constraint firstItem="l5b-MI-uz5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="33P-6g-WIa"/>
                             <constraint firstItem="dKO-ID-Ftv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CdZ-ez-2vz" secondAttribute="trailing" constant="-28" id="A3E-jp-mpz"/>
                             <constraint firstItem="CdZ-ez-2vz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="Axn-k0-VFZ"/>
+                            <constraint firstItem="xao-OV-DFB" firstAttribute="leading" secondItem="CdZ-ez-2vz" secondAttribute="leading" id="Fk7-yN-zKO"/>
                             <constraint firstItem="dKO-ID-Ftv" firstAttribute="top" secondItem="l5b-MI-uz5" secondAttribute="bottom" constant="33" id="Jy5-Wl-Wss"/>
                             <constraint firstItem="l5b-MI-uz5" firstAttribute="trailing" secondItem="dKO-ID-Ftv" secondAttribute="trailing" constant="11" id="Noc-o1-OEY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OfF-yt-uMD" secondAttribute="bottom" constant="60" id="XLE-Cy-6wo"/>
+                            <constraint firstItem="xao-OV-DFB" firstAttribute="top" secondItem="CdZ-ez-2vz" secondAttribute="bottom" constant="33" id="aU9-eg-qRv"/>
                             <constraint firstItem="l5b-MI-uz5" firstAttribute="centerX" secondItem="OfF-yt-uMD" secondAttribute="centerX" id="d4l-ES-zTd"/>
                             <constraint firstItem="l5b-MI-uz5" firstAttribute="leading" secondItem="CdZ-ez-2vz" secondAttribute="leading" id="iIo-3I-cAq"/>
-                            <constraint firstItem="Z7Z-Cd-UOd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="kue-Ig-2Ef"/>
-                            <constraint firstItem="Z7Z-Cd-UOd" firstAttribute="top" secondItem="CdZ-ez-2vz" secondAttribute="bottom" constant="15" id="lc4-k2-G5O"/>
+                            <constraint firstItem="xao-OV-DFB" firstAttribute="trailing" secondItem="l5b-MI-uz5" secondAttribute="trailing" id="kcj-hI-MsI"/>
                             <constraint firstItem="OfF-yt-uMD" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="mRb-kj-znQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dKO-ID-Ftv" secondAttribute="trailing" constant="16" id="ogm-iZ-tlD"/>
                         </constraints>
@@ -85,7 +82,7 @@
                         <outlet property="aiPickerView" destination="l5b-MI-uz5" id="MUv-It-wRe"/>
                         <outlet property="matchResultLabel" destination="dKO-ID-Ftv" id="QGK-8s-zAu"/>
                         <outlet property="playButton" destination="OfF-yt-uMD" id="0et-W9-cFs"/>
-                        <outlet property="playerImageView" destination="Z7Z-Cd-UOd" id="Yoo-3e-ZTl"/>
+                        <outlet property="playerPickerView" destination="xao-OV-DFB" id="jch-ao-Qd8"/>
                         <outlet property="scoreLabel" destination="CdZ-ez-2vz" id="sXr-JO-diz"/>
                     </connections>
                 </viewController>

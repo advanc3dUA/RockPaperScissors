@@ -9,11 +9,11 @@ import UIKit
 
 class RPSViewController: UIViewController {
     
-    @IBOutlet weak var playerImageView: UIImageView!
     @IBOutlet weak var matchResultLabel: UILabel!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var aiPickerView: UIPickerView!
+    @IBOutlet weak var playerPickerView: UIPickerView!
     
     var game = Game()
     var pickerController = UIImagePickerController()
@@ -24,6 +24,8 @@ class RPSViewController: UIViewController {
         super.viewDidLoad()
         aiPickerView.dataSource = self
         aiPickerView.delegate = self
+        playerPickerView.delegate = self
+        playerPickerView.dataSource = self
         setupPickerController()
     }
     
