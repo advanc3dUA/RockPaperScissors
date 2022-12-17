@@ -23,17 +23,8 @@ extension RPSViewController {
             }
             
             if let bestResult = results.first?.identifier {
-                var modifiedResult = ""
-                
-                switch bestResult {
-                case "FistHand": modifiedResult = K.rock
-                case "FiveHand": modifiedResult = K.paper
-                case "VictoryHand": modifiedResult = K.scissors
-                default:
-                    let random = Int.random(in: 0...2)
-                    modifiedResult = K.playerImageList[random]
-                }
-                
+                let modifiedResult = self.setModifiedResult(with: bestResult)
+                 
                 self.playerPickerView.isHidden = false
                 self.playerPickerView.isUserInteractionEnabled = true
                 
@@ -53,6 +44,17 @@ extension RPSViewController {
             try handler.perform([request])
         } catch {
             fatalError(error.localizedDescription)
+        }
+    }
+    
+    private func setModifiedResult(with result: String) -> String {
+        switch result {
+        case "FistHand": return K.rock
+        case "FiveHand": return K.paper
+        case "VictoryHand": return K.scissors
+        default:
+            let random = Int.random(in: 0...2)
+            return K.ImageList.player[random]
         }
     }
 }

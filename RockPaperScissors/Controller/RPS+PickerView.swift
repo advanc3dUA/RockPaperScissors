@@ -15,9 +15,9 @@ extension RPSViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView.tag == 1 {
-            return K.aiImageList.count
+            return K.ImageList.ai.count
         } else {
-            return K.playerImageList.count
+            return K.ImageList.player.count
         }
     }
     
@@ -32,9 +32,9 @@ extension RPSViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let result = UIImageView(frame: CGRect(x: 0, y: 0, width: 225, height: 225))
         if pickerView.tag == 1 {
-            result.image = UIImage(named: K.aiImageList[row])
+            result.image = UIImage(named: K.ImageList.ai[row])
         } else {
-            result.image = UIImage(named: K.playerImageList[row])
+            result.image = UIImage(named: K.ImageList.player[row])
         }
         return result
     }

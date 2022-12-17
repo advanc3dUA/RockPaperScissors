@@ -11,18 +11,19 @@ struct K {
     static let rock = "rock"
     static let scissors = "scissors"
     static let paper = "paper"
-    static let none = "none"
     
-    static var playerImageList: [String] = [K.rock, K.paper, K.scissors]
-    
-    static var aiImageList: [String] = {
-        let images = [K.rock, K.paper, K.scissors]
-        var array = [String]()
-        for index in 0...98 {
-            array.append(images[index % images.count])
-        }
-        return array
-    }()
+    struct ImageList {
+        static var player: [String] = [K.rock, K.paper, K.scissors]
+        
+        static var ai: [String] = {
+            let images = [K.rock, K.paper, K.scissors]
+            var array = [String]()
+            for index in 0...65 {
+                array.append(images[index % images.count])
+            }
+            return array
+        }()
+    }
     
     struct Result {
         static let win = "✅ You won!"
@@ -31,7 +32,7 @@ struct K {
     }
     
     struct Timer {
-        static let period = 0.2
+        static let period = 0.18
     }
 }
 

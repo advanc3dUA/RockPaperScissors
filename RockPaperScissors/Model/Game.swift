@@ -33,7 +33,7 @@ struct Game {
     }
     
     func getPlayerResult() -> String {
-        return "\(playerResult ?? "?")"
+        return "\(playerResult!)"
     }
     
     private func checkPlayerResult() -> String {

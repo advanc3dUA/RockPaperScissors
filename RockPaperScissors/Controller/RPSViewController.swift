@@ -34,11 +34,11 @@ class RPSViewController: UIViewController {
         if sender.titleLabel?.text == "Play" {
             present(pickerController, animated: true)
         } else {
-            
-            game.playersChoice = K.playerImageList[playerPickerView.selectedRow(inComponent: 0)]
+            let currentPlayerPickerViewPosition = playerPickerView.selectedRow(inComponent: 0)
+            game.playersChoice = K.ImageList.player[currentPlayerPickerViewPosition]
 
-            let newAIPickerPosition = Int.random(in: 0..<K.aiImageList.count)
-            let aiChoice = K.aiImageList[newAIPickerPosition]
+            let newAIPickerPosition = Int.random(in: 0..<K.ImageList.ai.count)
+            let aiChoice = K.ImageList.ai[newAIPickerPosition]
             game.aIChoice = aiChoice
             
             self.aiPickerPosition = newAIPickerPosition
