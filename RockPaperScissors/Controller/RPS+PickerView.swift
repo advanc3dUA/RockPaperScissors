@@ -46,15 +46,6 @@ extension RPSViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
         matchResultLabel.text = game.getPlayerResult()
     }
     
-    func getNewPositionForAIPicker(aiChoice: String) -> Int {
-        var randomNum = K.aiImageList.count / 2
-        
-        while aiChoice != K.aiImageList[randomNum] {
-            randomNum = Int.random(in: 0..<K.aiImageList.count)
-        }
-        return randomNum
-    }
-    
     func setNewRowForAIPickerView() {
         timer = Timer.scheduledTimer(timeInterval: K.Timer.period, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
     }
@@ -79,6 +70,10 @@ extension RPSViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
         } else if newPosition == position {
             timer.invalidate()
             updateScore()
+            
+            playButton.isHidden = false
+            playButton.setTitle("Play", for: .normal)
+            playButton.tintColor = .systemBlue
         }
     }
 }

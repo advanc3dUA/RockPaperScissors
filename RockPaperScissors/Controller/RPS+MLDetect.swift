@@ -33,20 +33,18 @@ extension RPSViewController {
                     let random = Int.random(in: 0...2)
                     modifiedResult = K.playerImageList[random]
                 }
-                // let modifiedResult = "rock"
-                print("playerResult: \(modifiedResult)")
                 
                 self.playerPickerView.isHidden = false
+                self.playerPickerView.isUserInteractionEnabled = true
+                
                 switch modifiedResult {
                 case K.rock: self.playerPickerView.selectRow(0, inComponent: 0, animated: true)
                 case K.paper: self.playerPickerView.selectRow(1, inComponent: 0, animated: true)
                 default: self.playerPickerView.selectRow(2, inComponent: 0, animated: true)
                 }
-                self.game.makeMove(with: modifiedResult) { aiChoice in
-                    print("aiResult= \(aiChoice)")
-                    self.aiPickerPosition = self.getNewPositionForAIPicker(aiChoice: aiChoice)
-                }
-                self.playButton.setTitle("Play again!", for: .normal)
+                
+                self.playButton.setTitle("Confirm", for: .normal)
+                self.playButton.tintColor = .red
             }
         }
         

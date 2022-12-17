@@ -29,13 +29,24 @@ class RPSViewController: UIViewController {
         setupPickerController()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        setNewRowForAIPickerView()
-    }
-    
     @IBAction func playPressed(_ sender: UIButton) {
-        present(pickerController, animated: true)
+
+        if sender.titleLabel?.text == "Play" {
+            present(pickerController, animated: true)
+        } else {
+            
+            game.playersChoice = K.playerImageList[playerPickerView.selectedRow(inComponent: 0)]
+
+            let newAIPickerPosition = Int.random(in: 0..<K.aiImageList.count)
+            let aiChoice = K.aiImageList[newAIPickerPosition]
+            game.aIChoice = aiChoice
+            
+            self.aiPickerPosition = newAIPickerPosition
+            setNewRowForAIPickerView()
+            playerPickerView.isUserInteractionEnabled = false
+            playButton.isHidden = true
+        }
+        
     }
 }
 

@@ -8,30 +8,18 @@
 import Foundation
 
 struct Game {
-    private var playersChoice: String? {
+    var playersChoice: String?
+    var aIChoice: String? {
         didSet {
-            aIChoice = makeNewAIChoice()
+            let result = checkPlayerResult()
+            playerResult = result
+            updateScoreAndPlayer(with: result)
         }
     }
-    private var aIChoice: String?
     private var playerResult: String?
     private var score: (ai: Int, player: Int) = (0, 0)
-    
-    mutating func makeMove(with playerChoice: String, completion: (String) -> ()) {
-        self.playersChoice = playerChoice
         
-        if let choice = aIChoice {
-            let result = checkPlayerResult()
-            updateScoreAndPlayer(with: result)
-            completion(choice)
-            
-        } else {
-            fatalError("aiChoice had been nil when completion was executed")
-        }
-    }
-    
     private mutating func updateScoreAndPlayer(with result: String) {
-        playerResult = result
         
         switch result {
         case K.Result.win: score.player += 1
@@ -46,19 +34,6 @@ struct Game {
     
     func getPlayerResult() -> String {
         return "\(playerResult ?? "?")"
-    }
-    
-    private mutating func makeNewAIChoice() -> String {
-        var choice = ""
-        
-        let random = Int.random(in: 0...2)
-        switch random {
-        case 0: choice = K.rock
-        case 1: choice = K.paper
-        case 2: choice = K.scissors
-        default: choice = K.none
-        }
-        return choice
     }
     
     private func checkPlayerResult() -> String {
