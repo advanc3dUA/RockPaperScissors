@@ -1,5 +1,5 @@
 <p align="center">
-      <img src="https://github.com/advanc3dUA/RockPaperScissors/blob/main/ReadmeHelper/logo.png" alt= "project Logo" width="250">
+      <img src="https://github.com/advanc3dUA/RockPaperScissors/blob/main/ReadmeHelper/logo.png" alt= "project Logo" height="250">
 </p>
 
 <p align="center">
@@ -15,7 +15,7 @@
 ## Preview
 
 <p align="center">
-      <img src="https://github.com/advanc3dUA/RockPaperScissors/blob/main/ReadmeHelper/preview.png" alt= "project Logo" width="250">
+      <img src="https://github.com/advanc3dUA/RockPaperScissors/blob/main/ReadmeHelper/preview.gif" alt= "Preview" width="250">
 </p>
 
 
