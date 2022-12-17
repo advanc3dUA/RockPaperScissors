@@ -9,8 +9,13 @@
 </p>
 
 ## About
+This is classic Rock, Paper or Scissors game. You have to choose one of those three to play.
 
 ## Features
+- No Cocoapods or something 3rd party
+- You have to add your own recognition .mlmodel to work properly
+- If the game can't recognize your choice, it will randomize one for you
+- If recognition was wrong, you can adjust recieved result by choosing the right one before confirm button press
 
 ## Preview
 
