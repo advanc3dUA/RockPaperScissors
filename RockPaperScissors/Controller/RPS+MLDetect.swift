@@ -13,7 +13,7 @@ extension RPSViewController {
     
     func detect(image: CIImage) {
         let mlModelConfiguration = MLModelConfiguration()
-        guard let model = try? VNCoreMLModel(for: Inceptionv3(configuration: mlModelConfiguration).model) else {
+        guard let model = try? VNCoreMLModel(for: HandSigns(configuration: mlModelConfiguration).model) else {
             fatalError("Error while creating model")
         }
         
@@ -23,8 +23,15 @@ extension RPSViewController {
             }
             
             if let bestResult = results.first?.identifier {
-                //var modifiedResult = bestResult
-                let modifiedResult = "rock"
+                var modifiedResult = ""
+                
+                switch bestResult {
+                case "FistHand": modifiedResult = K.rock
+                case "FiveHand": modifiedResult = K.paper
+                case "VictoryHand": modifiedResult = K.scissors
+                default: modifiedResult = K.none
+                }
+                // let modifiedResult = "rock"
                 print("playerResult: \(modifiedResult)")
                 
                 if self.isValidResult(modifiedResult) {

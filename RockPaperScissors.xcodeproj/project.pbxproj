@@ -16,9 +16,9 @@
 		BF1E44942949CE0F005E681A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1E44932949CE0F005E681A /* Game.swift */; };
 		BF1E44962949CF37005E681A /* RPS+PickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1E44952949CF37005E681A /* RPS+PickerController.swift */; };
 		BF1E44982949D756005E681A /* RPS+MLDetect.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1E44972949D756005E681A /* RPS+MLDetect.swift */; };
-		BF1E449A2949D895005E681A /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = BF1E44992949D895005E681A /* Inceptionv3.mlmodel */; };
 		BF1E449C2949E0AF005E681A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1E449B2949E0AF005E681A /* Constants.swift */; };
 		BF4FCFCC294B506200E1DCFC /* RPS+PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FCFCB294B506200E1DCFC /* RPS+PickerView.swift */; };
+		BFA10C95294D0D64007A2CA9 /* HandSigns.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = BFA10C94294D0D64007A2CA9 /* HandSigns.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,9 +33,9 @@
 		BF1E44932949CE0F005E681A /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		BF1E44952949CF37005E681A /* RPS+PickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RPS+PickerController.swift"; sourceTree = "<group>"; };
 		BF1E44972949D756005E681A /* RPS+MLDetect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RPS+MLDetect.swift"; sourceTree = "<group>"; };
-		BF1E44992949D895005E681A /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		BF1E449B2949E0AF005E681A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BF4FCFCB294B506200E1DCFC /* RPS+PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RPS+PickerView.swift"; sourceTree = "<group>"; };
+		BFA10C94294D0D64007A2CA9 /* HandSigns.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HandSigns.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +112,7 @@
 				BF1E44812949CC77005E681A /* Assets.xcassets */,
 				BF1E44832949CC77005E681A /* LaunchScreen.storyboard */,
 				BF1E44862949CC77005E681A /* Info.plist */,
-				BF1E44992949D895005E681A /* Inceptionv3.mlmodel */,
+				BFA10C94294D0D64007A2CA9 /* HandSigns.mlmodel */,
 			);
 			path = "Support files";
 			sourceTree = "<group>";
@@ -197,13 +197,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFA10C95294D0D64007A2CA9 /* HandSigns.mlmodel in Sources */,
 				BF1E44962949CF37005E681A /* RPS+PickerController.swift in Sources */,
 				BF1E44982949D756005E681A /* RPS+MLDetect.swift in Sources */,
 				BF1E44912949CDAF005E681A /* RPSViewController.swift in Sources */,
 				BF1E44792949CC76005E681A /* AppDelegate.swift in Sources */,
 				BF1E447B2949CC76005E681A /* SceneDelegate.swift in Sources */,
 				BF1E44942949CE0F005E681A /* Game.swift in Sources */,
-				BF1E449A2949D895005E681A /* Inceptionv3.mlmodel in Sources */,
 				BF4FCFCC294B506200E1DCFC /* RPS+PickerView.swift in Sources */,
 				BF1E449C2949E0AF005E681A /* Constants.swift in Sources */,
 			);
