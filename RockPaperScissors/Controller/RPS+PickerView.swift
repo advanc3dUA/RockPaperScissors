@@ -41,12 +41,18 @@ extension RPSViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
     }
     
     //MARK: - Animation of AI turn
-    func setNewRowForAIPickerView() {
-        timer = Timer.scheduledTimer(timeInterval: K.Timer.period, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+    func setNewRowForAIPickerView(with newPosition: Int) {
+        
+        timer = Timer.scheduledTimer(timeInterval: K.Timer.period,
+                                     target: self,
+                                     selector: #selector(timerAction(sender:)),
+                                     userInfo: newPosition,
+                                     repeats: true)
     }
     
-    @objc private func timerAction() {
-        guard let newPosition = aiPickerPosition else {
+    @objc private func timerAction(sender: Timer) {
+
+        guard let newPosition = sender.userInfo as? Int else {
             timer.invalidate()
             return
         }

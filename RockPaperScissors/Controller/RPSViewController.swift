@@ -18,7 +18,6 @@ class RPSViewController: UIViewController {
     var game = Game()
     var pickerController = UIImagePickerController()
     var timer = Timer()
-    var aiPickerPosition: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,11 +37,9 @@ class RPSViewController: UIViewController {
             game.playersChoice = K.ImageList.player[currentPlayerPickerViewPosition]
 
             let newAIPickerPosition = Int.random(in: 0..<K.ImageList.ai.count)
-            let aiChoice = K.ImageList.ai[newAIPickerPosition]
-            game.aIChoice = aiChoice
+            game.aIChoice = K.ImageList.ai[newAIPickerPosition]
             
-            self.aiPickerPosition = newAIPickerPosition
-            setNewRowForAIPickerView()
+            setNewRowForAIPickerView(with: newAIPickerPosition)
             playerPickerView.isUserInteractionEnabled = false
             playButton.isHidden = true
         }
