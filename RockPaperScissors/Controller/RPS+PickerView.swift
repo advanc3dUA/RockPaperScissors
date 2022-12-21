@@ -8,7 +8,8 @@
 import UIKit
 
 extension RPSViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
-    //MARK: Datasource & Delegate
+    
+    //MARK: Datasource & Delegate methods
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -39,13 +40,7 @@ extension RPSViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
         return result
     }
     
-    //MARK: - Getting new position of PickerView methods
-    private func updateScore() {
-        scoreLabel.isHidden = false
-        scoreLabel.text = game.getCurrentScore()
-        matchResultLabel.text = game.getPlayerResult()
-    }
-    
+    //MARK: - Animation of AI turn
     func setNewRowForAIPickerView() {
         timer = Timer.scheduledTimer(timeInterval: K.Timer.period, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
     }
@@ -75,5 +70,12 @@ extension RPSViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
             playButton.setTitle("Play", for: .normal)
             playButton.tintColor = .systemBlue
         }
+    }
+    
+    //MARK: - Update UI after AI finishes it's turn
+    private func updateScore() {
+        scoreLabel.isHidden = false
+        scoreLabel.text = game.getCurrentScore()
+        matchResultLabel.text = game.getPlayerResult()
     }
 }
