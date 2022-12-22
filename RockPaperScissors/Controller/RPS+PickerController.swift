@@ -10,12 +10,14 @@ import UIKit
 extension RPSViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func setupPickerController() {
+        
         pickerController.delegate = self
         pickerController.allowsEditing = false
         pickerController.sourceType = .camera
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
         if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             
             guard let ciImage = CIImage(image: selectedImage) else {

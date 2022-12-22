@@ -11,10 +11,12 @@ extension RPSViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
     
     //MARK: Datasource & Delegate methods
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
         if pickerView.tag == 1 {
             return K.ImageList.ai.count
         } else {
@@ -23,14 +25,17 @@ extension RPSViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
     }
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        
         return CGFloat(225.0)
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        
         return CGFloat(225.0)
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        
         let result = UIImageView(frame: CGRect(x: 0, y: 0, width: 225, height: 225))
         if pickerView.tag == 1 {
             result.image = UIImage(named: K.ImageList.ai[row])
@@ -80,6 +85,7 @@ extension RPSViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
     
     //MARK: - Update UI after AI finishes it's turn
     private func updateScore() {
+        
         scoreLabel.isHidden = false
         scoreLabel.text = game.getCurrentScore()
         matchResultLabel.text = game.getPlayerResult()

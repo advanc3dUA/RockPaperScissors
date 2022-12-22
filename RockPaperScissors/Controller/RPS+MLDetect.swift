@@ -12,6 +12,7 @@ import Vision
 extension RPSViewController {
     
     func detect(image: CIImage) {
+        
         let mlModelConfiguration = MLModelConfiguration()
         guard let model = try? VNCoreMLModel(for: HandSigns(configuration: mlModelConfiguration).model) else {
             fatalError("Error while creating model")
@@ -48,6 +49,7 @@ extension RPSViewController {
     }
     
     private func setModifiedResult(with result: String) -> String {
+        
         switch result {
         case "FistHand": return K.rock
         case "FiveHand": return K.paper

@@ -8,18 +8,19 @@
 import Foundation
 
 struct Game {
+    
     var playersChoice: String?
     var aIChoice: String? {
         didSet {
             let result = checkPlayerResult()
             playerResult = result
-            updateScoreAndPlayer(with: result)
+            updateScore(with: result)
         }
     }
     private var playerResult: String?
     private var score: (ai: Int, player: Int) = (0, 0)
         
-    private mutating func updateScoreAndPlayer(with result: String) {
+    private mutating func updateScore(with result: String) {
         
         switch result {
         case K.Result.win: score.player += 1
@@ -29,14 +30,17 @@ struct Game {
     }
     
     func getCurrentScore() -> String {
+        
         return "Score: \(String(score.ai)):\(String(score.player))"
     }
     
     func getPlayerResult() -> String {
+        
         return "\(playerResult!)"
     }
     
     private func checkPlayerResult() -> String {
+        
         var result = ""
         switch (aIChoice, playersChoice) {
             

@@ -20,11 +20,9 @@ class RPSViewController: UIViewController {
     var timer = Timer()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        aiPickerView.dataSource = self
-        aiPickerView.delegate = self
-        playerPickerView.delegate = self
-        playerPickerView.dataSource = self
+        pickersSetup()
         setupPickerController()
     }
     
@@ -44,6 +42,14 @@ class RPSViewController: UIViewController {
             playButton.isHidden = true
         }
         
+    }
+    
+    private func pickersSetup() {
+        
+        aiPickerView.dataSource = self
+        aiPickerView.delegate = self
+        playerPickerView.delegate = self
+        playerPickerView.dataSource = self
     }
 }
 
