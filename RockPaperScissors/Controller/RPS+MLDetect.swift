@@ -24,7 +24,7 @@ extension RPSViewController {
             }
             
             if let bestResult = results.first?.identifier {
-                let modifiedResult = self.setModifiedResult(with: bestResult)
+                let modifiedResult = self.resultAdapter(with: bestResult)
                  
                 self.playerPickerView.isHidden = false
                 self.playerPickerView.isUserInteractionEnabled = true
@@ -48,7 +48,7 @@ extension RPSViewController {
         }
     }
     
-    private func setModifiedResult(with result: String) -> String {
+    private func resultAdapter(with result: String) -> String {
         
         switch result {
         case "FistHand": return K.rock

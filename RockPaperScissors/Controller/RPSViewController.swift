@@ -51,6 +51,13 @@ class RPSViewController: UIViewController {
         playerPickerView.delegate = self
         playerPickerView.dataSource = self
     }
+    
+    private func setupPickerController() {
+        
+        pickerController.delegate = self
+        pickerController.allowsEditing = false
+        pickerController.sourceType = .camera
+    }
 }
 
 

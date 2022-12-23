@@ -20,15 +20,7 @@ struct Game {
     private var playerResult: String?
     private var score: (ai: Int, player: Int) = (0, 0)
         
-    private mutating func updateScore(with result: String) {
-        
-        switch result {
-        case K.Result.win: score.player += 1
-        case K.Result.lose: score.ai += 1
-        default: return
-        }
-    }
-    
+    //MARK: - Public methods
     func getCurrentScore() -> String {
         
         return "Score: \(String(score.ai)):\(String(score.player))"
@@ -37,6 +29,16 @@ struct Game {
     func getPlayerResult() -> String {
         
         return "\(playerResult!)"
+    }
+    
+    //MARK: - Private methods
+    private mutating func updateScore(with result: String) {
+        
+        switch result {
+        case K.Result.win: score.player += 1
+        case K.Result.lose: score.ai += 1
+        default: return
+        }
     }
     
     private func checkPlayerResult() -> String {
